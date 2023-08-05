@@ -11,6 +11,17 @@
   </head>
 
   <body>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <% if user_signed_in? %>
+      <h1>App</h1>
+      <%= button_to("Log Out", destroy_user_session_path, method: :delete) %>
+    <% else %>
+      <a href="/users/sign_in">Sign in</a>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
