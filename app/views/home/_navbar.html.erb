@@ -1,0 +1,23 @@
+<div class="nav-container">
+
+<% if current_user.image.attached? %>
+    <%= image_tag(current_user.image, class:"prof-pic") %>
+    <span class="navbar-label"><%= current_user.email %></span>
+<% else %>
+    <%= image_tag("default_profile_pic.png", class:"prof-pic") %>
+    <span class="navbar-label"><%= current_user.email %></span>
+<% end %>
+
+<li class="nav-item">
+    <%= button_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-btn" %>
+</li>
+
+<li class="nav-item">
+    <%= button_to "Profile", "users/profile", method: :get, class:"nav-btn" %>
+</li>
+
+<li class="nav-item">
+    <%= button_to "Page", root_url, method: :get, class:"nav-btn" %>
+</li>
+
+</div>
