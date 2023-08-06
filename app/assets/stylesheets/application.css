@@ -14,7 +14,11 @@
  *= require_self
  */
 
-/* Navbar elements */
+* {
+    font-family: 'Rubik', sans-serif;
+ }
+
+/* Navbar Elements */
 
 .nav-container {
     background:#FFFFFF; 
@@ -37,7 +41,7 @@
     margin: 2px 5px 5px 5px;
     display: block;
     color: black;
-    font-weight: bolder;
+    font-weight: 600;
     text-align: center;
     padding: 14px 16px;
     background-color:transparent;
@@ -47,7 +51,7 @@
 }
 
 .nav-btn:hover {
-    background-color: #9E64D7;
+    background-color: #E3E3E3;
     cursor: pointer;
 }
 
@@ -60,4 +64,63 @@
     float: left;
 }
 
-/* End Navbar elements */
+/* Pad Elements */
+
+.pad-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+    max-width: 700px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .pad-member {
+    background-color: #E3E3E3;
+    aspect-ratio: 1;
+  }
+
+  /* Header Elements */
+
+  .header {
+    text-align: center;
+    background-color:#E3E3E3;
+    font-weight: 500;
+  }
+
+  /* Preset Elements */
+
+  .center-preset {
+    text-align: center;
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  .previous {
+    text-align:center;
+    background-color: #f1f1f1;
+    color: black;
+    margin-right:5px;
+  }
+  
+  .next {
+    text-align:center;
+    background-color: black;
+    color: white;
+    margin-left:5px;
+  }
+  
+  .round {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 50%;
+  }
+  .round:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .center-preset-buttons {
+    text-align: center;
+  }
