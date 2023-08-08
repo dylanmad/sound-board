@@ -5,34 +5,50 @@
 </head>
 
 <body>
-<%= render 'home/header' %>
-<%= render 'home/navbar' %>
 
-<div class="center-preset-buttons">
-<a href="#" class="previous round">&#8249;</a>
-<h1 class="center-preset"> Preset 1 </h1>
-<a href="#" class="next round">&#8250;</a>
-</div>
+  <%= render 'home/header' %>
+  <%= render 'home/navbar' %>
 
-<div class="pad-container">
+  <div class="center-preset-buttons">
+  <a href="#" class="previous round">&#8249;</a>
+  <h1 class="center-preset"> Preset 1 </h1>
+  <a href="#" class="next round">&#8250;</a>
+  </div>
 
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/kick_2.wav'), button_label: 'Pad 1' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/kick_4.wav'), button_label: 'Pad 2' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/clap_8.wav'), button_label: 'Pad 3' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/clap_14.wav'), button_label: 'Pad 4' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/snare_1.wav'), button_label: 'Pad 5' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/snare_13.wav'), button_label: 'Pad 6' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/cymbal_1.wav'), button_label: 'Pad 7' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/cymbal_4.wav'), button_label: 'Pad 8' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_1.wav'), button_label: 'Pad 9' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_3.wav'), button_label: 'Pad 10' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_4.wav'), button_label: 'Pad 11' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_12.wav'), button_label: 'Pad 12' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_2.wav'), button_label: 'Pad 13' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_3.wav'), button_label: 'Pad 14' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_6.wav'), button_label: 'Pad 15' } %>
-  <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_13.wav'), button_label: 'Pad 16' } %>
+  <div class="pad-container">
 
-</div>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/kick_2.wav'), button_label: 'Pad 1' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/kick_4.wav'), button_label: 'Pad 2' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/clap_8.wav'), button_label: 'Pad 3' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/clap_14.wav'), button_label: 'Pad 4' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/snare_1.wav'), button_label: 'Pad 5' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/snare_13.wav'), button_label: 'Pad 6' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/cymbal_1.wav'), button_label: 'Pad 7' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/cymbal_4.wav'), button_label: 'Pad 8' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_1.wav'), button_label: 'Pad 9' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_3.wav'), button_label: 'Pad 10' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_4.wav'), button_label: 'Pad 11' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/hihat_12.wav'), button_label: 'Pad 12' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_2.wav'), button_label: 'Pad 13' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_3.wav'), button_label: 'Pad 14' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_6.wav'), button_label: 'Pad 15' } %>
+    <%= render partial: 'home/audio_button', locals: { audio_src: asset_path('preset-1/tom_13.wav'), button_label: 'Pad 16' } %>
+
+  </div>
+  
+  <script>
+    document.addEventListener("turbo:load", function() {
+      console.log("first listen");
+      const playButtons = document.querySelectorAll('.play-button');
+
+      playButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          console.log("second listen");
+          const audioPlayer = button.nextElementSibling;
+          audioPlayer.play();
+        });
+      });
+    });
+  </script>
 
 </body>

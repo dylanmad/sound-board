@@ -4,16 +4,3 @@
     <source src="<%= audio_src %>" type="audio/wav">
     Your browser does not support the audio element.
 </audio>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-const playButtons = document.querySelectorAll('.play-button');
-
-playButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-    const audioPlayer = button.nextElementSibling;
-    audioPlayer.play();
-    });
-});
-});
-</script>
