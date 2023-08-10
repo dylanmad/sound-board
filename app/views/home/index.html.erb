@@ -5,34 +5,66 @@
 </head>
 
 <body>
-<%= render 'home/header' %>
-<%= render 'home/navbar' %>
 
-<br><br>
+  <%= render 'home/header' %>
+  <%= render 'home/navbar' %>
 
-<div class="center-preset-buttons">
-<a href="#" class="previous round">&#8249;</a>
-<h1 class="center-preset"> Preset 1 </h1>
-<a href="#" class="next round">&#8250;</a>
-</div>
+  <div class="center-preset-buttons">
+  <a href="#" class="previous round">&#8249;</a>
+  <h1 class="center-preset" id="presetLabel"></h1>
+  <a href="#" class="next round">&#8250;</a>
+  </div>
 
-<div class="pad-container">
-  <div class="pad-member">Pad 1</div>
-  <div class="pad-member">Pad 2</div>
-  <div class="pad-member">Pad 3</div>
-  <div class="pad-member">Pad 4</div>
-  <div class="pad-member">Pad 5</div>
-  <div class="pad-member">Pad 6</div>
-  <div class="pad-member">Pad 7</div>
-  <div class="pad-member">Pad 8</div>
-  <div class="pad-member">Pad 9</div>
-  <div class="pad-member">Pad 10</div>
-  <div class="pad-member">Pad 11</div>
-  <div class="pad-member">Pad 12</div>
-  <div class="pad-member">Pad 13</div>
-  <div class="pad-member">Pad 14</div>
-  <div class="pad-member">Pad 15</div>
-  <div class="pad-member">Pad 16</div>
-</div>
+  <div class="pad-container" id="rubyCodeContainer">
+  </div>
+
+  <script>
+
+    var preset_1 = ["kick_2","kick_4","clap_8","clap_14","snare_1","snare_13","cymbal_1","cymbal_4","hihat_1","hihat_3","hihat_4","hihat_12","tom_2","tom_3","tom_6","tom_13"];
+    
+    function insertPartial(assetPath, buttonLabel) {
+      var rubyCodeContainer = document.getElementById('rubyCodeContainer');
+
+      // Construct the partial HTML
+      var partialHTML = `
+        <button class="play-button pad-member" data-src="${assetPath}">${buttonLabel}</button>
+        <audio class="audio-player">
+            <source src="${assetPath}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+      `;
+
+      // Insert the partial HTML into the container
+      rubyCodeContainer.innerHTML += partialHTML;
+    }
+
+    // Replace preset label with proper preset number
+    var presetLabelContainer = document.getElementById('presetLabel');
+    presetLabel.innerHTML = 'Preset 1';
+    
+    // Call the function with different values
+    for (var i = 0; i < 16; i++){
+      var asset_path = '/assets/preset-1/' + preset_1[i];
+      var pad_label = 'Pad ' + (i+1);
+      insertPartial(asset_path, pad_label);
+    }
+
+</script>
+
+<script>
+    document.addEventListener("turbo:load", function() {
+      console.log("first listen");
+      const playButtons = document.querySelectorAll('.play-button');
+
+      playButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          console.log("second listen");
+          const audioPlayer = button.nextElementSibling;
+          audioPlayer.play();
+        });
+      });
+    });
+
+  </script>
 
 </body>

@@ -80,6 +80,10 @@
     aspect-ratio: 1;
   }
 
+  .pad-member:hover {
+    background-color: #909090;
+  }
+
   /* Header Elements */
 
   .header {
@@ -124,3 +128,7 @@
   .center-preset-buttons {
     text-align: center;
   }
+
+  /*audioPlayer {
+    display: none;
+  }*/

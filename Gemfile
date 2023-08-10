@@ -67,7 +67,7 @@ group :development do
   # gem "spring"
 
   # Used for resetting password via email with Devise gem [https://github.com/ryanb/letter_opener]
-  gem "letter_opener"
+  gem 'letter_opener_web', '~> 2.0'
 end
 
 group :test do
