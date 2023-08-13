@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
+/* Creating pad buttons and loading them with preset-1 assets */
+document.addEventListener('turbo:load', function() {
 
     var preset_1 = ["kick_2","kick_4","clap_8","clap_14","snare_1","snare_13","cymbal_1","cymbal_4","hihat_1","hihat_3","hihat_4","hihat_12","tom_2","tom_3","tom_6","tom_13"];
         
@@ -30,8 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
     insertPartial(asset_path, pad_label);
     }
 
+});
 
-    document.addEventListener("turbo:load", function() {
+/* Listening for pad button presses */
+document.addEventListener("turbo:load", function() {
+
     console.log("first listen");
     const playButtons = document.querySelectorAll('.play-button');
 
@@ -42,6 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
         audioPlayer.play();
         });
     });
-    });
 
 });
+
