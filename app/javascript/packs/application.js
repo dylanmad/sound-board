@@ -44,6 +44,7 @@ document.addEventListener("turbo:load", function() {
         console.log("second listen");
         const audioPlayer = button.nextElementSibling;
         audioPlayer.play();
+        audioPlayer.currentTime = 0;
         });
     });
 
