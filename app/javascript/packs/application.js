@@ -51,9 +51,48 @@ function buttonAudio() {
 }
 
 
+document.addEventListener('turbo:load', function() {
+    console.log('turbo:load event fired');
+
+    document.body.addEventListener('click', function(event) {
+        if (event.target.id === 'nextButton') {
+
+            console.log('Next Preset button clicked');
+            preset_position++;
+            if (preset_position < 0) {
+                preset_position = preset_num.length - 1;
+            } else if (preset_position > preset_num.length - 1) {
+                preset_position = 0;
+            }
+            console.log('next: ' + preset_position);
+
+        } else if (event.target.id === 'backButton') {
+            console.log('Last Preset button clicked');
+            preset_position--;
+            if (preset_position < 0) {
+                preset_position = preset_num.length - 1;
+            } else if (preset_position > preset_num.length - 1) {
+                preset_position = 0;
+            }
+            console.log('last: ' + preset_position);
+        }
+    });
+
+    console.log('update');
+    updatePads();
+    console.log('audio');
+    buttonAudio();
+});
 
 
-/* Creating pad buttons and loading them with preset-1 assets */
+
+
+
+
+
+
+
+/* Creating pad buttons and loading them with preset-1 assets 
 document.addEventListener('turbo:load', function() {
     console.log('first: ' + preset_position);
     // Listens for last and next button presses for new preset
@@ -81,12 +120,13 @@ document.addEventListener('turbo:load', function() {
     
     });
     
-
+    console.log("update");
     updatePads();
+    console.log("audio");
     buttonAudio();
 
 
 });
 
-
+*/
 
