@@ -21,9 +21,9 @@ function insertPartial(assetPath, buttonLabel) {
 
 function updatePads() {
 
-    console.log('preset label change');
+    /*console.log('preset label change');
     var presetLabel = document.getElementById('presetLabel');
-    presetLabel.innerHTML = 'Preset ' + preset_num[preset_position];
+    presetLabel.innerHTML = 'Preset ' + preset_num[preset_position];*/
 
     // Call the function with different values
     for (var i = 0; i < 16; i++){

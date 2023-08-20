@@ -1,0 +1,13 @@
+<div class="center-preset-buttons">
+
+    <%= form_tag submit_form_path do %>
+      <%= label_tag :selection, "Select a preset:" %>
+      <%= select_tag :selection, options_for_select(["Preset 1", "Preset 2", "Preset 3", "Preset 4", "Preset 5"]) %>
+      <%= submit_tag "Submit" %>
+    <% end %>
+
+    <% if @selected_option %>
+      <p>Selected option: <%= @selected_option %></p>
+    <% end %>
+
+  </div>
