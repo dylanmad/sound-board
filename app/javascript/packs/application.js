@@ -7,6 +7,7 @@ var selectField = document.querySelector('#select-field');
 // Default preset value
 var selectedValue = "Preset 1";
 
+
 function insertPartial(assetPath, buttonLabel) {
     var rubyCodeContainer = document.getElementById('rubyCodeContainer');
     // Construct the partial HTML
@@ -25,6 +26,15 @@ function removePartial() {
     var rubyCodeContainer = document.getElementById('rubyCodeContainer');
     // Insert the partial HTML into the container
     rubyCodeContainer.innerHTML = "";
+}
+
+function addPresetLabel(presetLabel) {
+    var rubyPresetContainer = document.getElementById('rubyPresetContainer');
+    var partialHTML = `
+    <h1 class="preset-container">Current Preset: ${presetLabel}</h1>
+    `;
+    // Insert the partial HTML into the container
+    rubyPresetContainer.innerHTML = partialHTML;
 }
 
 function updatePads(presetVal) {
@@ -74,7 +84,6 @@ function buttonAudio() {
 }
 
 
-
 document.addEventListener('turbo:load', function() {
 
     console.log('turbo loaded');   
@@ -85,6 +94,8 @@ document.addEventListener('turbo:load', function() {
         selectedValue = selectField.value;
         console.log("Selected Value:", selectedValue);
 
+        console.log('label pre');
+        addPresetLabel(selectedValue)
         console.log('update pre');
         updatePads(selectedValue);
         console.log('audio pre');
@@ -93,6 +104,8 @@ document.addEventListener('turbo:load', function() {
       });
 
     // Default soundboard using Preset 1
+    console.log('label');
+    addPresetLabel(selectedValue)
     console.log('update');
     updatePads(selectedValue);
     console.log('audio');
@@ -106,13 +119,6 @@ document.addEventListener('turbo:load', function() {
 
 
 
-document.getElementById("back-link").addEventListener("click", function() {
-    window.close();
-  });
-
-  document.getElementById("sub-link").addEventListener("click", function() {
-    window.close();
-  });
 
 
   
