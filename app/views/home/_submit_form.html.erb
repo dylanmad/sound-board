@@ -1,13 +1,15 @@
 <div class="center-preset-buttons">
 
-    <%= form_tag submit_form_path do %>
+    <%= form_tag submit_form_path, remote: true, id: 'your-form-id' do %>
       <%= label_tag :selection, "Select a preset:" %>
-      <%= select_tag :selection, options_for_select(["Preset 1", "Preset 2", "Preset 3", "Preset 4", "Preset 5"]) %>
+      <%= select_tag :selection, options_for_select(["Preset 1", "Preset 2", "Preset 3", "Preset 4", "Preset 5"]), id: 'select-field' %>
+      <!-- Hidden field to store the value for JavaScript -->
+      <%= hidden_field_tag :hidden_value, '', id: 'hidden-value' %>
       <%= submit_tag "Submit" %>
     <% end %>
 
-    <% if @selected_option %>
-      <p>Selected option: <%= @selected_option %></p>
-    <% end %>
+    
 
   </div>
+
+  <%= javascript_pack_tag 'form_submission' %>

@@ -1,3 +1,4 @@
+
 // Default preset files for percussion
 var preset_plate = ["kick_1","kick_2","clap_1","clap_2","snare_1","snare_2","cymbal_1","cymbal_2","hihat_1","hihat_2","hihat_3","hihat_4","tom_1","tom_2","tom_3","tom_4"];
 // Default preset files for keys
@@ -59,29 +60,6 @@ function buttonAudio() {
 document.addEventListener('turbo:load', function() {
     console.log('turbo:load event fired');       
 
-    document.body.addEventListener('click', function(event) {
-        if (event.target.id === 'nextButton') {
-    
-            console.log('Next Preset button clicked');
-            preset_position++;
-            if (preset_position > preset_num.length - 1) {
-                preset_position = 0;
-            }
-            console.log('next: ' + preset_position);
-    
-    
-        } else if (event.target.id === 'backButton') {
-            console.log('Last Preset button clicked');
-            preset_position--;
-            if (preset_position < 0) {
-                preset_position = preset_num.length - 1;
-            } 
-            console.log('last: ' + preset_position);
-            
-        } 
-            
-    });
-    
     console.log('update');
     updatePads();
     console.log('audio');
@@ -89,6 +67,7 @@ document.addEventListener('turbo:load', function() {
     
 
 });
+
 
 
 document.getElementById("back-link").addEventListener("click", function() {

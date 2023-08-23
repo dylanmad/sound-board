@@ -1,7 +1,14 @@
 class HomeController < ApplicationController
+
+
+
     def submit_form
-        if params[:selection]
-          @selected_option = params[:selection]
+
+        respond_to do |format|
+          format.html { redirect_to root_path, notice: 'Form submitted successfully.' }
+          format.js 
         end
-      end
+
+    end
+
 end
