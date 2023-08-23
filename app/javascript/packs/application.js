@@ -1,10 +1,11 @@
-
 // Default preset files for percussion
 var preset_plate = ["kick_1","kick_2","clap_1","clap_2","snare_1","snare_2","cymbal_1","cymbal_2","hihat_1","hihat_2","hihat_3","hihat_4","tom_1","tom_2","tom_3","tom_4"];
 // Default preset files for keys
 var preset_keys = ["c6","b5","asharp5","a5","gsharp5","g5","fsharp5","f5","e5","dsharp5","d5","csharp5","c5","b4","asharp4","a4"];  
-var preset_num = [1,2,3,4,5];
-var preset_position = 0;
+var form = document.querySelector('#your-form-id');
+var selectField = document.querySelector('#select-field');
+// Default preset value
+var selectedValue = "Preset 1";
 
 function insertPartial(assetPath, buttonLabel) {
     var rubyCodeContainer = document.getElementById('rubyCodeContainer');
@@ -20,20 +21,36 @@ function insertPartial(assetPath, buttonLabel) {
     rubyCodeContainer.innerHTML += partialHTML;
 }
 
-function updatePads() {
+function removePartial() {
+    var rubyCodeContainer = document.getElementById('rubyCodeContainer');
+    // Insert the partial HTML into the container
+    rubyCodeContainer.innerHTML = "";
+}
 
-    /*console.log('preset label change');
-    var presetLabel = document.getElementById('presetLabel');
-    presetLabel.innerHTML = 'Preset ' + preset_num[preset_position];*/
+function updatePads(presetVal) {
+    // Remove any previous pads
+    removePartial();
 
     // Call the function with different values
     for (var i = 0; i < 16; i++){
-        if (preset_num[preset_position] < 4) {
-            var asset_path = '/assets/preset-' + preset_num[preset_position] + '/' + preset_plate[i];
+        if (presetVal == "Preset 1") {
+            var asset_path = '/assets/preset-1/' + preset_plate[i];
             var pad_label = 'Pad ' + (i+1);
             insertPartial(asset_path, pad_label);
-        } else {
-            var asset_path = '/assets/preset-' + preset_num[preset_position] + '/' + preset_keys[i];
+        } else if (presetVal == "Preset 2") {
+            var asset_path = '/assets/preset-2/' + preset_plate[i];
+            var pad_label = 'Pad ' + (i+1);
+            insertPartial(asset_path, pad_label);
+        } else if (presetVal == "Preset 3") {
+            var asset_path = '/assets/preset-3/' + preset_plate[i];
+            var pad_label = 'Pad ' + (i+1);
+            insertPartial(asset_path, pad_label);
+        } else if (presetVal == "Preset 4") {
+            var asset_path = '/assets/preset-4/' + preset_keys[i];
+            var pad_label = 'Pad ' + (i+1);
+            insertPartial(asset_path, pad_label);
+        } else if (presetVal == "Preset 5") {
+            var asset_path = '/assets/preset-5/' + preset_keys[i];
             var pad_label = 'Pad ' + (i+1);
             insertPartial(asset_path, pad_label);
         }
@@ -57,16 +74,35 @@ function buttonAudio() {
 }
 
 
-document.addEventListener('turbo:load', function() {
-    console.log('turbo:load event fired');       
 
+document.addEventListener('turbo:load', function() {
+
+    console.log('turbo loaded');   
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        selectedValue = selectField.value;
+        console.log("Selected Value:", selectedValue);
+
+        console.log('update pre');
+        updatePads(selectedValue);
+        console.log('audio pre');
+        buttonAudio();
+    
+      });
+
+    // Default soundboard using Preset 1
     console.log('update');
-    updatePads();
+    updatePads(selectedValue);
     console.log('audio');
     buttonAudio();
+
+    
     
 
 });
+
 
 
 
