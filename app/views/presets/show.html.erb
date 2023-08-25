@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @preset %>
+
+<div>
+  <%= link_to "Edit this preset", edit_preset_path(@preset) %> |
+  <%= link_to "Back to presets", presets_path %>
+
+  <%= button_to "Destroy this preset", @preset, method: :delete %>
+</div>
