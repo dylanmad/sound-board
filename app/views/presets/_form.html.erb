@@ -11,6 +11,16 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :filename, "Audio File" %>
+    <%= form.text_field :filename%>
+  </div>
+  
+  <div class="field">
+    <%= form.label :audio_file, "Audio File" %>
+    <%= form.file_field :audio_file%>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>

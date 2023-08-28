@@ -2,6 +2,17 @@
 
 <%= render @preset %>
 
+<p>
+  <strong>Attribute 1:</strong>
+  <%= @preset.filename %>
+  <audio controls>
+    <source src="<%= rails_blob_url(@preset.audio_file) %> type="audio/mpeg"/>
+    </audio>
+</p>
+
+
+
+
 <div>
   <%= link_to "Edit this preset", edit_preset_path(@preset) %> |
   <%= link_to "Back to presets", presets_path %>

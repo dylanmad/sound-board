@@ -1,6 +1,7 @@
 class PresetsController < ApplicationController
   before_action :set_preset, only: %i[ show edit update destroy ]
 
+
   # GET /presets or /presets.json
   def index
     @presets = Preset.all
@@ -21,8 +22,8 @@ class PresetsController < ApplicationController
 
   # POST /presets or /presets.json
   def create
+    
     @preset = Preset.new(preset_params)
-
     respond_to do |format|
       if @preset.save
         format.html { redirect_to preset_url(@preset), notice: "Preset was successfully created." }
@@ -65,6 +66,7 @@ class PresetsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def preset_params
-      params.fetch(:preset, {})
+      
+      params.require(:preset).permit(:filename, :audio_file)
     end
 end
