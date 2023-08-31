@@ -67,6 +67,6 @@ class PresetsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def preset_params
       
-      params.require(:preset).permit(:filename, :audio_file)
+      params.require(:preset).permit(:filename, audio_files: [])
     end
 end

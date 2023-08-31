@@ -12,13 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :filename, "Audio File" %>
+    <%= form.label :filename, "Preset Name" %>
     <%= form.text_field :filename%>
   </div>
   
   <div class="field">
-    <%= form.label :audio_file, "Audio File" %>
-    <%= form.file_field :audio_file%>
+    <%= form.label :audio_files, "Audio Files" %>
+    <%= form.file_field :audio_files, multiple: true%>
   </div>
 
   <div>

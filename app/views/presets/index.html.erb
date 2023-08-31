@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Presets</h1>
+<h1>Custom Presets</h1>
+
+<%= link_to "New preset", new_preset_path %>
 
 <div id="presets">
   <% @presets.each do |preset| %>
     <%= render preset %>
     <p>
-      <%= link_to "Show this preset", preset %>
+      <%= link_to preset.filename, preset %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New preset", new_preset_path %>
+<%= link_to "Back", root_path %>
+
