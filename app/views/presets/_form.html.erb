@@ -1,0 +1,27 @@
+<%= form_with(model: preset) do |form| %>
+  <% if preset.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(preset.errors.count, "error") %> prohibited this preset from being saved:</h2>
+
+      <ul>
+        <% preset.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :filename, "Preset Name" %>
+    <%= form.text_field :filename%>
+  </div>
+  
+  <div class="field">
+    <%= form.label :audio_files, "Audio Files" %>
+    <%= form.file_field :audio_files, multiple: true%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

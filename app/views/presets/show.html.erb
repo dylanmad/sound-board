@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @preset %>
+
+<p>
+  <strong>Attribute 1:</strong>
+  <%= @preset.filename %>
+
+  <% @preset.audio_files.each do |audio_file| %>
+    <audio controls>
+      <source src="<%= rails_blob_path(audio_file) %> type="audio/mpeg"/>
+    </audio>
+  <% end %>
+
+</p>
+
+
+
+
+<div>
+  <%= link_to "Edit this preset", edit_preset_path(@preset) %> |
+  <%= link_to "Back to presets", presets_path %>
+
+  <%= button_to "Destroy this preset", @preset, method: :delete %>
+</div>
