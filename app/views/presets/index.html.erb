@@ -5,7 +5,7 @@
 <%= link_to "New preset", new_preset_path %>
 
 <div id="presets">
-  <% @presets.each do |preset| %>
+  <% current_user.presets.each do |preset| %>
     <%= render preset %>
     <p>
       <%= link_to preset.filename, preset %>
