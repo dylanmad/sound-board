@@ -4,7 +4,7 @@ class PresetsController < ApplicationController
 
   # GET /presets or /presets.json
   def index
-    @presets = current_user.presets.all
+    @preset = current_user.presets.all
   end
 
   # GET /presets/1 or /presets/1.json
@@ -16,6 +16,7 @@ class PresetsController < ApplicationController
     @preset = current_user.presets.new
   end
 
+
   # GET /presets/1/edit
   def edit
   end
@@ -24,6 +25,7 @@ class PresetsController < ApplicationController
   def create
     
     @preset = current_user.presets.new(preset_params)
+ 
     respond_to do |format|
       if @preset.save
         format.html { redirect_to preset_url(@preset), notice: "Preset was successfully created." }

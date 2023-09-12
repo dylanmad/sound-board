@@ -66,6 +66,7 @@ function updatePads(presetVal) {
         }
 
     }
+   
 
 }
 
@@ -85,7 +86,6 @@ function buttonAudio() {
 
 
 document.addEventListener('turbo:load', function() {
-
     console.log('turbo loaded');   
 
     form.addEventListener('submit', function(event) {
