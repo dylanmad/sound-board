@@ -4,12 +4,17 @@ var preset_plate = ["kick_1","kick_2","clap_1","clap_2","snare_1","snare_2","cym
 var preset_keys = ["c6","b5","asharp5","a5","gsharp5","g5","fsharp5","f5","e5","dsharp5","d5","csharp5","c5","b4","asharp4","a4"];  
 var form = document.querySelector('#your-form-id');
 var selectField = document.querySelector('#select-field');
+
+var audioForm = document.querySelector('#pre-form-id');
+var fileField = document.querySelector('#file-field');
+
 // Default preset value
 var selectedValue = "Preset 1";
+var rubyCodeContainer = document.getElementById('rubyCodeContainer');
 
 
-function insertPartial(assetPath, buttonLabel) {
-    var rubyCodeContainer = document.getElementById('rubyCodeContainer');
+
+function insertPartial(assetPath, buttonLabel, container) {
     // Construct the partial HTML
     var partialHTML = `
         <button class="play-button pad-member" data-src="${assetPath}">${buttonLabel}</button>
@@ -19,52 +24,69 @@ function insertPartial(assetPath, buttonLabel) {
         </audio>
     `;
     // Insert the partial HTML into the container
-    rubyCodeContainer.innerHTML += partialHTML;
+    if (container != null) {
+    container.innerHTML += partialHTML;
+    }
 }
 
-function removePartial() {
+
+
+
+function removePartial(container) {
     var rubyCodeContainer = document.getElementById('rubyCodeContainer');
     // Insert the partial HTML into the container
-    rubyCodeContainer.innerHTML = "";
+    if (container != null) {
+        container.innerHTML = "";
+    }
 }
 
-function addPresetLabel(presetLabel) {
+function addPresetLabel(presetLabel,container) {
     var rubyPresetContainer = document.getElementById('rubyPresetContainer');
     var partialHTML = `
     <h1 class="preset-container">Current Preset: ${presetLabel}</h1>
     `;
     // Insert the partial HTML into the container
-    rubyPresetContainer.innerHTML = partialHTML;
+    if (container != null) {
+        container.innerHTML = partialHTML;
+    }
 }
 
-function updatePads(presetVal) {
+function updatePads(presetVal,container) {
     // Remove any previous pads
-    removePartial();
-
+    removePartial(rubyCodeContainer);
+    var custom = false;
     // Call the function with different values
     for (var i = 0; i < 16; i++){
         if (presetVal == "Preset 1") {
             var asset_path = '/assets/preset-1/' + preset_plate[i];
             var pad_label = 'Pad ' + (i+1);
-            insertPartial(asset_path, pad_label);
+            insertPartial(asset_path, pad_label ,container);
         } else if (presetVal == "Preset 2") {
             var asset_path = '/assets/preset-2/' + preset_plate[i];
             var pad_label = 'Pad ' + (i+1);
-            insertPartial(asset_path, pad_label);
+            insertPartial(asset_path, pad_label, container);
         } else if (presetVal == "Preset 3") {
             var asset_path = '/assets/preset-3/' + preset_plate[i];
             var pad_label = 'Pad ' + (i+1);
-            insertPartial(asset_path, pad_label);
+            insertPartial(asset_path, pad_label,container);
         } else if (presetVal == "Preset 4") {
             var asset_path = '/assets/preset-4/' + preset_keys[i];
             var pad_label = 'Pad ' + (i+1);
-            insertPartial(asset_path, pad_label);
+            insertPartial(asset_path, pad_label,container);
         } else if (presetVal == "Preset 5") {
             var asset_path = '/assets/preset-5/' + preset_keys[i];
             var pad_label = 'Pad ' + (i+1);
-            insertPartial(asset_path, pad_label);
+            insertPartial(asset_path, pad_label,container);
+            
+        } else {
+            custom = true;
+            break;
         }
 
+    }
+
+    if (custom == true) {
+        console.log("Custom true");
     }
    
 
@@ -88,26 +110,37 @@ function buttonAudio() {
 document.addEventListener('turbo:load', function() {
     console.log('turbo loaded');   
 
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-    
-        selectedValue = selectField.value;
-        console.log("Selected Value:", selectedValue);
+    if (form != null) {
 
-        console.log('label pre');
-        addPresetLabel(selectedValue)
-        console.log('update pre');
-        updatePads(selectedValue);
-        console.log('audio pre');
-        buttonAudio();
-    
-      });
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+        
+            selectedValue = selectField.value;
+            console.log("Selected Value:", selectedValue);
+
+            /*if (selectedValue == "please"){
+                console.log("Please selected");
+            }*/
+            if (selectedValue != null) {
+                    console.log('label pre');
+                    addPresetLabel(selectedValue, rubyCodeContainer);
+                    console.log('update pre');
+                    updatePads(selectedValue, rubyCodeContainer);
+            }
+            console.log('audio pre');
+            buttonAudio();
+        
+        });
+    }
+
 
     // Default soundboard using Preset 1
-    console.log('label');
-    addPresetLabel(selectedValue)
-    console.log('update');
-    updatePads(selectedValue);
+    if (selectedValue != null) {
+        console.log('label');
+        addPresetLabel(selectedValue, rubyCodeContainer);
+        console.log('update');
+        updatePads(selectedValue, rubyCodeContainer);
+    }
     console.log('audio');
     buttonAudio();
 
@@ -117,9 +150,4 @@ document.addEventListener('turbo:load', function() {
 });
 
 
-
-
-
-
-  
 
