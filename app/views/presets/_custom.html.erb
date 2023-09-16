@@ -17,11 +17,24 @@
 
   <% end %>
 
+  <script>
+  console.log("first listen");
+    playButtons = document.querySelectorAll('.play-button');
+
+    playButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+        console.log("second listen");
+        const audioPlayer = button.nextElementSibling;
+        audioPlayer.play();
+        audioPlayer.currentTime = 0;
+        });
+    });
+</script>
+
 
   </div>
 
 <% end %>
-
 
 
 

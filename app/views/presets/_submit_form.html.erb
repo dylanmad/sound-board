@@ -1,6 +1,6 @@
 <div class="center-preset-buttons">
 
-<% filenames_array = ["Preset 1","Preset 2","Preset 3","Preset 4","Preset 5"] %>
+<% filenames_array = [] %>
   <% current_user.presets.each do |preset| %>
   <% filenames_array << preset.filename %>
 <% end %>
