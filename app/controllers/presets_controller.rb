@@ -20,6 +20,20 @@ class PresetsController < ApplicationController
   def edit
   end
 
+  def submit_form
+    @selected_preset = nil
+    current_file = params[:selected_preset]
+    active_pre = Preset.find_by(filename: current_file)
+    @selected_preset = active_pre
+    if active_pre
+    render turbo_stream: turbo_stream.update(
+    'custom-partial-frame', partial: 'presets/custom', locals: { selected_preset: @selected_preset }
+  )
+    end
+
+  end
+
+
   # POST /presets or /presets.json
   def create
     

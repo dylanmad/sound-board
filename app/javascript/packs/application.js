@@ -113,7 +113,7 @@ document.addEventListener('turbo:load', function() {
     if (form != null) {
 
         form.addEventListener('submit', function(event) {
-            event.preventDefault();
+            //event.preventDefault();
         
             selectedValue = selectField.value;
             console.log("Selected Value:", selectedValue);

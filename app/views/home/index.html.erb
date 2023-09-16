@@ -17,7 +17,10 @@
   <div class="pad-container" id="rubyCodeContainer">
   </div>
 
-
+  <turbo-frame id="custom-partial-frame">
+    <%= render 'presets/custom', locals: {selected_preset: @selected_preset} %>
+  </turbo-frame>
+  
   <%= render 'home/footer' %>
 
 
