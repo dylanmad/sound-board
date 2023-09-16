@@ -3,19 +3,24 @@
 <%= render @preset %>
 
 <p>
-  <strong>Attribute 1:</strong>
+  <strong>Preset Name:</strong>
   <%= @preset.filename %>
 
+  <div class="pad-container" id="customCodeContainer">
+  
   <% @preset.audio_files.each do |audio_file| %>
-    <audio controls>
-      <source src="<%= rails_blob_path(audio_file) %> type="audio/mpeg"/>
-    </audio>
+  
+    <button class="play-button pad-member" data-src="<%= rails_blob_path(audio_file) %>" >Test</button>
+        <audio class="audio-player">
+            <source src="<%= rails_blob_path(audio_file) %> type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+
   <% end %>
 
+  </div>
+
 </p>
-
-
-
 
 <div>
   <%= link_to "Edit this preset", edit_preset_path(@preset) %> |

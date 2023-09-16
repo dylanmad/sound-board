@@ -4,7 +4,7 @@ class PresetsController < ApplicationController
 
   # GET /presets or /presets.json
   def index
-    @presets = Preset.all
+    @preset = current_user.presets.all
   end
 
   # GET /presets/1 or /presets/1.json
@@ -13,7 +13,7 @@ class PresetsController < ApplicationController
 
   # GET /presets/new
   def new
-    @preset = Preset.new
+    @preset = current_user.presets.new
   end
 
   # GET /presets/1/edit
@@ -23,9 +23,14 @@ class PresetsController < ApplicationController
   # POST /presets or /presets.json
   def create
     
-    @preset = Preset.new(preset_params)
+    @preset = current_user.presets.new(preset_params)
+ 
     respond_to do |format|
       if @preset.save
+        # Generate the URL for the attached audio file and save it to an instance variable
+        # @audio_file_url = rails_blob_path(@preset.audio_files.first, disposition: "attachment") if @preset.audio_files.attached?
+        @audio_file_urls = @preset.audio_files.map { |file| rails_blob_path(file, disposition: "attachment") } if @preset.audio_files.attached?
+
         format.html { redirect_to preset_url(@preset), notice: "Preset was successfully created." }
         format.json { render :show, status: :created, location: @preset }
       else

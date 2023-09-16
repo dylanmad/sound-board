@@ -1,0 +1,19 @@
+<div class="center-preset-buttons">
+
+<% filenames_array = ["Preset 1","Preset 2","Preset 3","Preset 4","Preset 5"] %>
+  <% current_user.presets.each do |preset| %>
+  <% filenames_array << preset.filename %>
+<% end %>
+
+  <%= form_tag submit_form_path, id: 'your-form-id' do %>
+  <%= label_tag :selection, "Select a preset:" %>
+  <%= select_tag :selected_preset, options_for_select(filenames_array), id: 'select-field' %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+
+
+
+
+</div>
+

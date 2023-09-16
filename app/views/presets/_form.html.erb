@@ -1,4 +1,4 @@
-<%= form_with(model: preset) do |form| %>
+<%= form_with(model: preset, html: { id: 'pre-form-id' }) do |form| %>
   <% if preset.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(preset.errors.count, "error") %> prohibited this preset from being saved:</h2>
@@ -18,7 +18,7 @@
   
   <div class="field">
     <%= form.label :audio_files, "Audio Files" %>
-    <%= form.file_field :audio_files, multiple: true%>
+    <%= form.file_field :audio_files, multiple: true, id: 'file-field' %>
   </div>
 
   <div>
