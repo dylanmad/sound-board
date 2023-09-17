@@ -6,7 +6,7 @@
 <% end %>
 
   <%= form_tag submit_form_path, id: 'your-form-id' do %>
-  <%= label_tag :selection, "Select a preset:" %>
+  <%= label_tag :selection, "Select a preset:", id: 'form-label' %>
   <%= select_tag :selected_preset, options_for_select(filenames_array), id: 'select-field' %>
   <%= submit_tag "Submit" %>
 <% end %>

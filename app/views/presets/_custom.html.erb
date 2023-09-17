@@ -1,14 +1,15 @@
 <% if defined?(selected_preset) %>
 
+<div class="title-container">
   <strong>Preset Name:</strong>
   <%= selected_preset.filename %>
-
+</div>
 
   <div class="pad-container" id="customCodeContainer">
  
   <% selected_preset.audio_files.each do |audio_file| %>
  
-    <button class="play-button pad-member" data-src="<%= rails_blob_path(audio_file) %>" >Test</button>
+    <button class="play-button pad-member" data-src="<%= rails_blob_path(audio_file) %>" ></button>
         <audio class="audio-player">
             <source src="<%= rails_blob_path(audio_file) %> type="audio/mpeg">
             Your browser does not support the audio element.
