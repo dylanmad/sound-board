@@ -18,11 +18,26 @@
     font-family: 'Rubik', sans-serif;
  }
 
+ body {
+  background-color: #DAFFFB;
+ }
+
+ #form-label {
+  color: black;
+ }
+
+ .center {
+  text-align: center;
+ }
+
 /* Navbar Elements */
 
 .nav-container {
-    background:#FFFFFF; 
+    background:#64CCC5; 
     overflow:auto;
+    margin-bottom: 20px;
+    padding: 8px 5px 8px 5px;
+    border-radius: 30px;
 }
 .navbar-label {
     float: left;
@@ -30,6 +45,7 @@
     padding: 8px 0px 8px 5px;
     margin: auto;
     font-size:25px;
+    color: black;
 }
 
 .nav-item {
@@ -51,7 +67,7 @@
 }
 
 .nav-btn:hover {
-    background-color: #E3E3E3;
+    background-color: #DAFFFB;
     cursor: pointer;
 }
 
@@ -64,6 +80,13 @@
     float: left;
 }
 
+.title-container {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: black;
+}
 /* Pad Elements */
 
 .pad-container {
@@ -76,25 +99,26 @@
   }
 
   .pad-member {
-    background-color:#E3E3E3;
+    background-color:#f1f1f1;
     aspect-ratio: 1;
   }
 
   .pad-member:hover {
-    background-color: #909090;
+    background-color: #64CCC5;
   }
 
   /* Header Elements */
 
   .header {
     text-align: center;
-    background-color:#E3E3E3;
+    color: black;
     font-weight: 500;
   }
 
   .footer {
     text-align: center;
-    background-color:#E3E3E3;
+    color: black;
+    background-color: #64CCC5; 
     font-weight: 300;
   }
 

@@ -3,20 +3,36 @@
 <%= render @preset %>
 
 <p>
+<div class="title-container">
   <strong>Preset Name:</strong>
   <%= @preset.filename %>
+  </div>
 
   <div class="pad-container" id="customCodeContainer">
   
   <% @preset.audio_files.each do |audio_file| %>
   
-    <button class="play-button pad-member" data-src="<%= rails_blob_path(audio_file) %>" >Test</button>
+    <button class="play-button pad-member" data-src="<%= rails_blob_path(audio_file) %>" ></button>
         <audio class="audio-player">
             <source src="<%= rails_blob_path(audio_file) %> type="audio/wav">
             Your browser does not support the audio element.
         </audio>
 
   <% end %>
+
+    <script>
+  console.log("first listen");
+    playButtons = document.querySelectorAll('.play-button');
+
+    playButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+        console.log("second listen");
+        const audioPlayer = button.nextElementSibling;
+        audioPlayer.play();
+        audioPlayer.currentTime = 0;
+        });
+    });
+    </script>
 
   </div>
 
