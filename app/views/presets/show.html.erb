@@ -1,5 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<%= render 'home/navbar' %>
+
 <%= render @preset %>
 
 <p>
@@ -44,3 +53,4 @@
 
   <%= button_to "Destroy this preset", @preset, method: :delete %>
 </div>
+</body>
