@@ -1,34 +1,52 @@
-# Sound-board Project
-### Project is still in development with deployment expected within the next month (October 2023)
+# Custom Soundboard Project
 
 # About
-The sound-board project was created out of a desire for a customizable sound-board that I -- or anyone -- could use anywhere in the world. As a hobby, I produce music using an AKAI MPC ONE, which is a physical standalone sound-board. As much as I love using it, I've noticed some limitations it has. One is the fact that to add audio files to the sampler and to export finished tracks, I need to download files to an SD card from a computer and transfer it to the board, and then export a song to a USB drive and upload it to my computer. This set-up is less than ideal, and is the core motiviation behind the creation of the sound-board project.
+The custom soundboard project was created out of a desire for a customizable soundboard that I -- or anyone -- could use anywhere in the world. As a hobby, I produce music using an AKAI MPC ONE, which is a physical standalone soundboard. As much as I love using it, I've noticed some limitations it has. One is the fact that to add audio files to the sampler and to export finished tracks, I need to download files to an SD card from a computer and transfer it to the board, and then export a song to a USB drive and upload it to my computer. This set-up is less than ideal, and is the core motiviation behind the creation of the soundboard project.
 
 # Features
-## Easy Sound-board Selection
+## Easy Soundboard Selection
 Once logged-in, the user is taken to a screen with a default preset. The user can then use the drop-down menu to select one of their presets, hit the submit button, and the page immediately shows the selected preset and allows the user to play audio from the pads.
+<p align="center">
+<img src="https://github.com/dylanmad/sound-board/blob/main/app/assets/images/readme/index.gif" alt="Sound-board Index Page" width="800"/>
+</p>
 
-![Sound-board Index Page](https://i.imgur.com/nsKsIt5.png)
 ## Custom Preset Editor
 The site features a custom preset uploader where users can upload audio files to be added to a preset, and name the preset. Once the preset is created, they can edit them, delete them, and the preset gets added to the drop-down menu on the main screen so the user is able to select it.
+
 ### Custom Preset Menu
-![Presets Menu](https://i.imgur.com/CeInfGt.png)
+<p align="center">
+<img src="https://github.com/dylanmad/sound-board/blob/main/app/assets/images/readme/custom.gif" alt="Preset Menu" width="800"/>
+</p>
+
 ### New Preset Page
-![New Preset](https://i.imgur.com/41J4cwl.png)
-### Custom Preset Preview
-![Preset Display](https://i.imgur.com/I8zomx7.png)
+<p align="center">
+<img src="https://github.com/dylanmad/sound-board/blob/main/app/assets/images/readme/newpre.gif" alt="New Preset" width="800"/>
+</p>
+
 ## User Sign-up With Email Verification
 The site allows users to sign-up with an email, create a password, and add a profile picture. This is important because each user has the ability to create their own custom presets, and each preset is attached to a user, so only the user who creates a preset has access to it.
+
 ### Sign-up Page
-![User Sign-up](https://i.imgur.com/woQAOwm.png) 
+<p align="center">
+<img src="https://github.com/dylanmad/sound-board/blob/main/app/assets/images/readme/signup1.PNG" alt="User Sign-Up" width="400"/>
+</p>
+
 ### Email Verification 
-![Email Verification](https://i.imgur.com/HlQHTrI.png) 
+<p align="center">
+<img src="https://i.imgur.com/FaVo9HG.png" alt="Email Verification" width="600"/>
+</p>
+
 ### Log-in Page
-![User Log-in](https://i.imgur.com/8TgJlss.png)
+<p align="center">
+<img src="https://github.com/dylanmad/sound-board/blob/main/app/assets/images/readme/login1.PNG" alt="User Log-In" width="400"/>
+</p>
+
 ## Edit User Information
 Users can also view and edit their profile information, like changing their password or profile picture.
+<p align="center">
+<img src="https://github.com/dylanmad/sound-board/blob/main/app/assets/images/readme/edituser1.PNG" alt="Edit User Information" width="800"/>
+</p>
 
-![Edit User Information](https://i.imgur.com/vp1chz3.png)
 # Implementation
 I used Ruby on Rails 7, SQLite3, and Model-View-Controller design principles to develop this application. Initially, I had implemented much of the functionality using JavaScript, but I decided to instead use Turbo to develop as much of the app using Ruby on Rails as possible. I installed the [Devise Gem](https://github.com/heartcombo/devise) for the sign-up functionality, the [LetterOpenerWeb Gem](https://github.com/ryanb/letter_opener) to access verification emails locally, and various other gems to assist with Active Storage. I also opted to use custom CSS instead of Bootstrap because I wanted more flexibility when it came to the design of the site. Here are some important code snippets with a brief explanation on what they do:
 ## Preset Pad Display
@@ -95,17 +113,16 @@ Once the form in the index that contains the titles of each preset gets submitte
 
 There is a lot more code involved in the project, but these were some of the main features I wanted to highlight.
 # Backlog
-The sound-board project is a more recent project of mine, and for that reason there are a lot of features I want to implement beyond what I have already displayed. Features like:
+The soundboard project is a more recent project of mine, and for that reason there are a lot of features I want to implement beyond what I have already displayed. Features like:
 ## Universal Default Presets
 Currently, users can create and use their own presets. The next step in development is for me to create custom presets that every user starts with, so after a new user signs up, they can start using the site right away.
 ## Extensive Security Testing
 Devise handles a lot of the security behind sign-ups, but I want to make sure all form submissions and user information is protected. I have done some testing, but before I deploy the app, I would like to do more testing and ask others to test my application in search of vulnerablities.
-## Updated Styling
+~~## Updated Styling~~
 I recognize that the CSS of the site is very primitive. That is because I have been focusing on functionality first, and styling second. Now that the app is functional, I would like to style it to look modern and professional.
 ## Recording Capability
 What's a sound-board without the ability to record songs? I would like to implement a way for users to record songs using multiple tracks, with a metronome and timing features, just like I do using the MPC ONE.
 ## Sharing Feature
 Once users can create songs, there should be a page where they can share them for all to hear.
 # Conclusion
-In closing, I want to thank you for checking out my project, and hope that you follow me on my journey in creating this sound-board application. It is still in the early stages of development, and soon I plan on deploying it online for the world to use. I also plan on adding interesting new features, and better styling, so be on the lookout for those updates.
-# Stick Around for the Next Phase of the Sound-board!
+In closing, I want to thank you for checking out my project, and hope that you follow me on my journey in creating this soundboard application. It is still in the early stages of development, and soon I plan on deploying it online for the world to use. I also plan on adding interesting new features, and better styling, so be on the lookout for those updates.
