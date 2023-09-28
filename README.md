@@ -1,5 +1,4 @@
 # Custom Soundboard Project
-
 # About
 The custom soundboard project was created out of a desire for a customizable soundboard that I -- or anyone -- could use anywhere in the world. As a hobby, I produce music using an AKAI MPC ONE, which is a physical standalone soundboard. As much as I love using it, I've noticed some limitations it has. One is the fact that to add audio files to the sampler and to export finished tracks, I need to download files to an SD card from a computer and transfer it to the board, and then export a song to a USB drive and upload it to my computer. This set-up is less than ideal, and is the core motiviation behind the creation of the soundboard project.
 
@@ -118,8 +117,8 @@ The soundboard project is a more recent project of mine, and for that reason the
 Currently, users can create and use their own presets. The next step in development is for me to create custom presets that every user starts with, so after a new user signs up, they can start using the site right away.
 ## Extensive Security Testing
 Devise handles a lot of the security behind sign-ups, but I want to make sure all form submissions and user information is protected. I have done some testing, but before I deploy the app, I would like to do more testing and ask others to test my application in search of vulnerablities.
-~~## Updated Styling~~
-I recognize that the CSS of the site is very primitive. That is because I have been focusing on functionality first, and styling second. Now that the app is functional, I would like to style it to look modern and professional.
+## Updated Styling
+Now that the app is functional, I would like to style it to look modern and professional.
 ## Recording Capability
 What's a sound-board without the ability to record songs? I would like to implement a way for users to record songs using multiple tracks, with a metronome and timing features, just like I do using the MPC ONE.
 ## Sharing Feature
