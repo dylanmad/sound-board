@@ -1,4 +1,10 @@
-
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<%= render 'home/navbar' %>
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -48,3 +54,4 @@
 
 <%= link_to "Back", root_path %>
 
+</body>

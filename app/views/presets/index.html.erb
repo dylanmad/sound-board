@@ -1,8 +1,19 @@
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<%= render 'home/navbar' %>
 <p style="color: green"><%= notice %></p>
+
 <div class="center">
 <h1>Custom Presets</h1>
 
+<div id="preset-menu">
 <%= link_to "New preset", new_preset_path %>
+</div>
 
 <div id="presets">
   <% current_user.presets.each do |preset| %>
@@ -13,5 +24,9 @@
   <% end %>
 </div>
 
+<div id="preset-menu">
 <%= link_to "Back", root_path %>
 </div>
+
+</div>
+</body>
