@@ -1,4 +1,4 @@
-# Custom Soundboard Project
+# Custom Soundboard 
 # About
 The custom soundboard project was created out of a desire for a customizable soundboard that I -- or anyone -- could use anywhere in the world. As a hobby, I produce music using an AKAI MPC ONE, which is a physical standalone soundboard. As much as I love using it, I've noticed some limitations it has. One is the fact that to add audio files to the sampler and to export finished tracks, I need to download files to an SD card from a computer and transfer it to the board, and then export a song to a USB drive and upload it to my computer. This set-up is less than ideal, and is the core motiviation behind the creation of the soundboard project.
 
@@ -112,7 +112,7 @@ Once the form in the index that contains the titles of each preset gets submitte
 
 There is a lot more code involved in the project, but these were some of the main features I wanted to highlight.
 # Backlog
-The soundboard project is a more recent project of mine, and for that reason there are a lot of features I want to implement beyond what I have already displayed. Features like:
+Below is a backlog of features, in no particular order, that I intend to implement and deploy in the near future:
 ## Universal Default Presets
 Currently, users can create and use their own presets. The next step in development is for me to create custom presets that every user starts with, so after a new user signs up, they can start using the site right away.
 ## Extensive Security Testing
@@ -124,4 +124,4 @@ What's a sound-board without the ability to record songs? I would like to implem
 ## Sharing Feature
 Once users can create songs, there should be a page where they can share them for all to hear.
 # Conclusion
-In closing, I want to thank you for checking out my project, and hope that you follow me on my journey in creating this soundboard application. It is still in the early stages of development, and soon I plan on deploying it online for the world to use. I also plan on adding interesting new features, and better styling, so be on the lookout for those updates.
+In closing, I want to thank you for checking out my project, and invite you to check out other projects that I have been working on.
